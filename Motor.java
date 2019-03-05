@@ -1,39 +1,90 @@
 
 public class Motor {
 	private static int numberOfengine = 2;
-	public String name;
-	public   int high_voltage = 4;
-	public int Power_consumption = 300;
-	public String name1;
-	public  int high_voltage1 = 5;
-	public   int Power_consumption1 = 400;
-	private int  priceIndollars = 100 ;
-	private int  priceIndollars1 = 150;
-	private int weight = 250;
-	private int weight1 = 275;
-	protected int release_date = 2005 ;
-	protected int release_date1 = 2010;
-	protected double motor_volume = 1.4 ;
-	protected double motor_volume1 = 1.6;
-	
-	public Motor(int h , int P, int h1 , int P1){
-		this.high_voltage = h;
-		this.Power_consumption = P;
-		this.high_voltage1 = h1;
-		this.Power_consumption1  = P1;
+	private String name;
+	private int powerConsumption;
+	private int highVoltage;
+	private int priceInDollars;
+	private int weight;
+	protected int releaseDate;
+	protected double motorVolume;
+
+	public Motor() {
+		this("Gasoline", 500, 5,200 , 300, 2008, 1.4  );
+	}
+
+	public Motor(String name, int powerConsumption, int highVoltage, int priceInDollars) {
+		this(name, powerConsumption, highVoltage, priceInDollars, 0, 0, 0);
+	}
+
+	public Motor(String name, int powerConsumption, int highVoltage, int priceInDollars, int weight, int releaseDate,
+			double motorVolume) {
+		this.name = name;
+		this.powerConsumption = powerConsumption;
+		this.highVoltage = highVoltage;
+		this.priceInDollars = priceInDollars;
+		this.weight = weight;
+		this.releaseDate = releaseDate;
+		this.motorVolume = motorVolume;
 		numberOfengine ++;
 	}
-	public Motor (int high_voltage,int Power_consumption,int high_voltage1,int Power_consumption1,int p , int p1 , int w ,int w1 , int r ,int r1 , double m , double m1 ){
-		this( high_voltage,Power_consumption,high_voltage1,Power_consumption1);
-		setPriceIndollars(p);
-		setPriceIndollars1(p1);
-		setWeight(w);
-		setWeight1(w1);
-		release_date = r;
-		release_date1 = r1;
-		motor_volume = m;
-		motor_volume1 = m1;
+
+	public String getName() {
+		return name;
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPowerConsumption() {
+		return powerConsumption;
+	}
+
+	public void setPowerConsumption(int powerConsumption) {
+		this.powerConsumption = powerConsumption;
+	}
+
+	public int getHighVoltage() {
+		return highVoltage;
+	}
+
+	public void setHighVoltage(int highVoltage) {
+		this.highVoltage = highVoltage;
+	}
+
+	public int getPriceInDollars() {
+		return priceInDollars;
+	}
+
+	public void setPriceInDollars(int priceInDollars) {
+		this.priceInDollars = priceInDollars;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public int getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(int releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+
+	public double getMotorVolume() {
+		return motorVolume;
+	}
+
+	public void setMotorVolume(double motorVolume) {
+		this.motorVolume = motorVolume;
+	}
+
 	public static int getNumberofEngine() {
 	    return numberOfengine;
 	}
@@ -48,37 +99,27 @@ public class Motor {
 	public void printnumberOfengine() {
 	    System.out.println("numberOfengine:" + numberOfengine);
 	}
-	public int getPriceIndollars() {
-		return priceIndollars;
+	
+	
+	@Override
+	public String toString() {
+		return "Motor [name=" + name + ", powerConsumption=" + powerConsumption + ", highVoltage=" + highVoltage
+				+ ", priceInDollars=" + priceInDollars + ", weight=" + weight + ", releaseDate=" + releaseDate
+				+ ", motorVolume=" + motorVolume + "]";
 	}
-	public void setPriceIndollars(int priceIndollars) {
-		this.priceIndollars = priceIndollars;
+
+	public void resetValues(String name , int powerConsumption , int highVoltage , int priceInDollars , int weight , int releaseDate , double motorVolume ) {
+           this.name = name;
+           this.powerConsumption = powerConsumption;
+           this.highVoltage = highVoltage;
+           this.priceInDollars = priceInDollars;
+           this.weight = weight;
+           this.releaseDate = releaseDate;
+           this.motorVolume = motorVolume;
 	}
-	public int getPriceIndollars1() {
-		return priceIndollars1;
-	}
-	public void setPriceIndollars1(int priceIndollars1) {
-		this.priceIndollars1 = priceIndollars1;
-	}
-	public int getWeight() {
-		return weight;
-	}
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
-	public int getWeight1() {
-		return weight1;
-	}
-	public void setWeight1(int weight1) {
-		this.weight1 = weight1;
-	}
-	public void resetValues(String name, int high_voltage, int Power_consumption) {
-	    this.name = name;
-	    this.high_voltage = high_voltage;
-	    this.Power_consumption = Power_consumption;
-	   
-	}
-	public String toString(){
-		return name + high_voltage + Power_consumption;
-	}
+
+	
+
+	
+
 }
